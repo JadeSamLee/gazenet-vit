@@ -47,9 +47,10 @@
     font-family: 'Inter', sans-serif;
     background-image: 
       radial-gradient(circle at 20px 20px, rgba(0, 128, 128, 0.05) 2px, transparent 0),
-      radial-gradient(circle at 40px 40px, rgba(0, 128, 128, 0.03) 2px, transparent 0);
-    background-size: 40px 40px;
-    background-position: 0 0, 20px 20px;
+      radial-gradient(circle at 40px 40px, rgba(0, 128, 128, 0.03) 2px, transparent 0),
+      linear-gradient(to right, rgba(0, 128, 128, 0.01), rgba(0, 128, 128, 0.02));
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+    background-position: 0 0, 20px 20px, 0 0;
   }
 
   .glass {
@@ -100,5 +101,19 @@
   
   .icon-bg {
     @apply bg-gradient-to-br from-teal-500 to-teal-300;
+  }
+
+  .classic-card {
+    @apply bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100;
+  }
+  
+  .classic-pattern {
+    background-image: 
+      linear-gradient(45deg, rgba(0, 128, 128, 0.03) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(0, 128, 128, 0.03) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(0, 128, 128, 0.03) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(0, 128, 128, 0.03) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
 }
