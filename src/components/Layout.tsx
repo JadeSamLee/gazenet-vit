@@ -15,7 +15,7 @@ const Layout = () => {
     <div className="min-h-screen flex flex-col">
       <header className="py-4 px-8 border-b border-gray-100 glass sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2 text-primary transition-all duration-300 hover:opacity-80">
+          <Link to="/" className="flex items-center space-x-2 text-teal-600 transition-all duration-300 hover:opacity-80">
             <Eye className="h-6 w-6" />
             <span className="text-xl font-semibold">GazeNet</span>
           </Link>
@@ -53,13 +53,13 @@ const NavLink = ({ to, current, children }: { to: string; current: string; child
       to={to}
       className={`relative py-2 transition-colors duration-300 ${
         isActive 
-          ? "text-primary font-medium" 
-          : "text-gray-600 hover:text-primary"
+          ? "text-teal-600 font-medium" 
+          : "text-gray-600 hover:text-teal-600"
       }`}
     >
       {children}
       {isActive && (
-        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full animate-fade-in" />
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-600 rounded-full animate-fade-in" />
       )}
     </Link>
   );
