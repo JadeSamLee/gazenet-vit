@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
-import { Eye } from "lucide-react";
+import Logo from "./Logo";
 
 const Layout = () => {
   const location = useLocation();
@@ -15,9 +15,8 @@ const Layout = () => {
     <div className="min-h-screen flex flex-col">
       <header className="py-4 px-8 border-b border-gray-100 glass sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2 text-teal-600 transition-all duration-300 hover:opacity-80">
-            <Eye className="h-6 w-6" />
-            <span className="text-xl font-semibold">GazeNet</span>
+          <Link to="/" className="transition-all duration-300 hover:opacity-80">
+            <Logo />
           </Link>
           
           <nav className="hidden md:flex space-x-8">
@@ -59,7 +58,7 @@ const NavLink = ({ to, current, children }: { to: string; current: string; child
     >
       {children}
       {isActive && (
-        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-600 rounded-full animate-fade-in" />
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full animate-fade-in" />
       )}
     </Link>
   );
