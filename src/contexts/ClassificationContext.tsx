@@ -5,6 +5,14 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 export const TASKS = ["Picture", "Reading", "Video"];
 export const ATTENTION = ["BVPS (GTSS)", "BVPS (TSS)", "GVPS (BTSS)", "GVPS (TSS)"];
 
+// Define the full descriptions for attention types
+export const ATTENTION_DESCRIPTIONS = {
+  "BVPS (GTSS)": "Bad visuo-perceptual skills, Good task switching skills",
+  "BVPS (TSS)": "Bad visuo-perceptual skills and bad task switching skills",
+  "GVPS (BTSS)": "Good visuo-perceptual skills, Bad task switching skills",
+  "GVPS (TSS)": "Good visuo-perceptual skills, good task switching skills"
+};
+
 interface ClassificationContextType {
   videoFile: File | null;
   modelFile: File | null;

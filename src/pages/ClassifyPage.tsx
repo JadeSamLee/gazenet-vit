@@ -1,9 +1,43 @@
 
 import { useState, useEffect } from 'react';
 import { FileVideo, Database, Play, RefreshCw } from 'lucide-react';
-import { useClassification } from '../contexts/ClassificationContext';
+import { useClassification, ATTENTION_DESCRIPTIONS } from '../contexts/ClassificationContext';
 import FileDropzone from '../components/FileDropzone';
 import { toast } from '@/components/ui/use-toast';
+
+// Helper function to get appropriate emoji for attention result
+const getAttentionEmoji = (attentionType: string | null) => {
+  if (!attentionType) return '';
+  
+  switch (attentionType) {
+    case "BVPS (GTSS)":
+      return '👁️‍🗨️ 🔄';
+    case "BVPS (TSS)":
+      return '👁️‍🗨️ ❌';
+    case "GVPS (BTSS)":
+      return '👁️ ❌';
+    case "GVPS (TSS)":
+      return '👁️ 🔄';
+    default:
+      return '';
+  }
+};
+
+// Helper function to get appropriate emoji for task result
+const getTaskEmoji = (taskType: string | null) => {
+  if (!taskType) return '';
+  
+  switch (taskType) {
+    case "Picture":
+      return '🖼️';
+    case "Reading":
+      return '📚';
+    case "Video":
+      return '🎬';
+    default:
+      return '';
+  }
+};
 
 const ClassifyPage = () => {
   const {
@@ -111,15 +145,18 @@ const ClassifyPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-2 text-center">
               <p className="text-sm font-medium text-gray-500">TASK CLASSIFICATION</p>
-              <div className="bg-blue-50 text-blue-800 py-3 px-4 rounded-lg font-bold text-xl">
-                {taskResult}
+              <div className="bg-teal-50 text-teal-800 py-3 px-4 rounded-lg font-bold text-xl">
+                {getTaskEmoji(taskResult)} {taskResult}
               </div>
             </div>
             
             <div className="space-y-2 text-center">
               <p className="text-sm font-medium text-gray-500">ATTENTION CLASSIFICATION</p>
-              <div className="bg-purple-50 text-purple-800 py-3 px-4 rounded-lg font-bold text-xl">
-                {attentionResult}
+              <div className="bg-teal-50 text-teal-800 py-3 px-4 rounded-lg font-bold text-xl">
+                {getAttentionEmoji(attentionResult)}
+              </div>
+              <div className="bg-teal-50 text-teal-800 py-3 px-4 rounded-lg text-md">
+                {attentionResult && ATTENTION_DESCRIPTIONS[attentionResult as keyof typeof ATTENTION_DESCRIPTIONS]}
               </div>
             </div>
           </div>
